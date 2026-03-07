@@ -10,6 +10,7 @@ public static class RemoveRainVfxPatch
 {
     public static void Postfix(ref NRainVfx __result)
     {
-        __result.SelfModulate = Colors.Transparent;
+        if (ModSettings.DisableRainEffect)
+            __result.SelfModulate = Colors.Transparent;
     }
 }

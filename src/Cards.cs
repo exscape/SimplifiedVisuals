@@ -8,7 +8,7 @@ public static class NBigSlashVfx__Ready_Patch
 {
     public static bool Prefix(NBigSlashVfx __instance)
     {
-        return false;
+        return !ModSettings.DisableBigSlashEffect;
     }
 }
 
@@ -17,7 +17,7 @@ public static class NBigSlashImpactVfx__Ready_Patch
 {
     public static bool Prefix(NBigSlashImpactVfx __instance)
     {
-        return false;
+        return !ModSettings.DisableBigSlashEffect;
     }
 
 }
