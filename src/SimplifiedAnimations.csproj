@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;D:\SteamLibrary\steamapps\common\Slay the Spire 2\mods\&quot; /Y" />
+      <Exec Command="xcopy &quot;$(ProjectDir)\..\SimplifiedAnimations.pck&quot; &quot;D:\SteamLibrary\steamapps\common\Slay the Spire 2\mods\&quot; /Y&#xA;xcopy &quot;$(TargetPath)&quot; &quot;D:\SteamLibrary\steamapps\common\Slay the Spire 2\mods\&quot; /Y" />
     </Target>
 
 </Project>
