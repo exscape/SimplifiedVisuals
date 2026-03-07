@@ -2,3 +2,12 @@ root = true
 
 [*]
 charset = utf-8
+
+[*.cs]
+
+# Disable Harmony reflection "unused" warnings
+resharper_unused_type_global_highlighting = none
+resharper_unused_member_global_highlighting = none
+
+# Disable Harmony magic parameter naming warnings (like __instance)
+resharper_inconsistent_naming_highlighting = none

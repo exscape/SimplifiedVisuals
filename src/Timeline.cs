@@ -5,13 +5,6 @@ using MegaCrit.Sts2.Core.Nodes.Screens.Timeline;
 using MegaCrit.Sts2.Core.Nodes.Screens.Timeline.UnlockScreens;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
-// Harmony patches are "unused" since they are only used via reflection; that's not an issue
-// ReSharper disable UnusedType.Global
-// ReSharper disable UnusedMember.Global
-
-// `__instance` is the correct name, but Rider suggests `instance` instead
-// ReSharper disable InconsistentNaming
-
 namespace SimplifiedAnimations;
 
 // Freeze the animated stars in the background (and apparently foreground) of the timeline
