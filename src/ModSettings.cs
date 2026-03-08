@@ -33,7 +33,7 @@ public static class ModSettings
 
         if (err == Error.Ok)
         {
-            Console.WriteLine("[SimplifiedAnimations] Loaded configuration.cfg");
+            Console.WriteLine("[SimplifiedAnimations] Loaded configuration.ini");
 
             // Cards section
             DisableBigSlashEffect = (bool)_config.GetValue("Cards", "DisableBigSlashEffect", DisableBigSlashEffect);

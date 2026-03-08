@@ -24,7 +24,8 @@ public static class NBigSlashImpactVfx__Ready_Patch
 
 }
 
-// Reduce time spent between card draws; one card is drawn, then this delay is applied, then another, etc.
+// Reduce time spent between card draws; one card is drawn, then this delay is applied, then another is drawn, etc.
+// Cards will essentially be drawn and move together.
 [HarmonyPatch(typeof(CardPileCmd), "AppendPileLerpTween")]
 public static class CardPileTween_Transpiler_Patch
 {
@@ -47,14 +48,13 @@ public static class CardPileTween_Transpiler_Patch
             return instructions;
         }
 
-        // Move the cursor from Ldc_R4 to Ldloc_2, where we load a fixed value instead
+        // Move the cursor from the original Ldc_R4 to Ldloc_2, where we load a fixed value instead
         matcher.Advance(2);
 
         // Regardless of fast mode setting, use 0.02f (instant mode: 0.01f, fast: 0.1f, regular: 0.25f)
-        var labels = matcher.Instruction.ExtractLabels();
-        var replacement = new CodeInstruction(OpCodes.Ldc_R4, 0.02f);
-        replacement.labels.AddRange(labels);
-        matcher.SetInstruction(replacement);
+        var originalLabels = matcher.Instruction.ExtractLabels();
+        var replacementInstruction = new CodeInstruction(OpCodes.Ldc_R4, 0.02f).WithLabels(originalLabels);
+        matcher.SetInstruction(replacementInstruction);
 
         Console.WriteLine("[SimplifiedAnimations] AppendPileLerpTween successfully patched");
         return matcher.InstructionEnumeration();
