@@ -8,6 +8,7 @@ public static class ModSettings
 
     // Cards section
     public static bool DisableBigSlashEffect { get; private set; } = true;
+    public static bool QuickerDraw { get; private set; } = true;
 
     // Events section
     public static bool DisableRainEffect { get; private set; } = true;
