@@ -1,42 +1,27 @@
-﻿using System.Reflection.Emit;
-using HarmonyLib;
+﻿using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Saves;
+using MegaCrit.Sts2.Core.Settings;
 
 namespace SimplifiedAnimations.Patches;
 
 // Reduce time spent between card draws; one card is drawn, then this delay is applied, then another is drawn, etc.
 // Cards will essentially be drawn and move together.
 [HarmonyPatch(typeof(CardPileCmd), "AppendPileLerpTween")]
-public static class CardPileTween_Transpiler_Patch
+public static class CardPileTween_Patch
 {
-    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    private static FastModeType previousValue = FastModeType.Fast;
+
+    public static void Prefix()
     {
-        if (!ModSettings.QuickerDraw) return instructions;
+        if (!ModSettings.QuickerDraw) return;
+        previousValue = SaveManager.Instance.PrefsSave.FastMode;
+        SaveManager.Instance.PrefsSave.FastMode = FastModeType.Instant;
+    }
 
-        var matcher = new CodeMatcher(instructions, generator);
-
-        matcher.MatchStartForward(
-            new CodeMatch(OpCodes.Ldc_R4, 0.25f),
-            new CodeMatch(OpCodes.Stloc_2),
-            new CodeMatch(OpCodes.Ldloc_2),
-            new CodeMatch(OpCodes.Stloc_1)
-        );
-
-        if (matcher.IsInvalid)
-        {
-            Console.WriteLine("[SimplifiedAnimations] Transpiler match failed in AppendPileLerpTween!");
-            return instructions;
-        }
-
-        // Move the cursor from the original Ldc_R4 to Ldloc_2, where we load a fixed value instead
-        matcher.Advance(2);
-
-        // Regardless of fast mode setting, use 0.02f (instant mode: 0.01f, fast: 0.1f, regular: 0.25f)
-        var originalLabels = matcher.Instruction.ExtractLabels();
-        var replacementInstruction = new CodeInstruction(OpCodes.Ldc_R4, 0.02f).WithLabels(originalLabels);
-        matcher.SetInstruction(replacementInstruction);
-
-        Console.WriteLine("[SimplifiedAnimations] AppendPileLerpTween successfully patched");
-        return matcher.InstructionEnumeration();
+    public static void Postfix()
+    {
+        if (!ModSettings.QuickerDraw) return;
+        SaveManager.Instance.PrefsSave.FastMode = previousValue;
     }
 }
