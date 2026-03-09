@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿using Godot;
+using HarmonyLib;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Nodes.Vfx.Cards;
 
@@ -94,5 +96,26 @@ public static class NSpookyScreamVfx__Ready_Patch
     public static bool Prefix(NSpookyScreamVfx __instance)
     {
         return !ModSettings.DisableSpookyScreamEffect;
+    }
+}
+
+// Hide The Insatiable "waterfalls" (sandfalls)
+[HarmonyPatch(typeof(NCombatBackground), nameof(NCombatBackground.Create))]
+public static class DisableWaterfallsPatch
+{
+    public static void Postfix(NCombatBackground __result)
+    {
+        if (!ModSettings.DisableInsatiableSandfalls) return;
+        if (__result == null) return;
+        if (!__result.SceneFilePath.Contains("the_insatiable_boss")) return;
+
+        for (var i = 1; i <= 9; i++)
+        {
+            var waterfall = __result.GetNodeOrNull<Node2D>($"gpu waterfall {i}");
+            if (waterfall == null) continue;
+
+            waterfall.Visible = false;
+            waterfall.ProcessMode = Node.ProcessModeEnum.Disabled;
+        }
     }
 }
