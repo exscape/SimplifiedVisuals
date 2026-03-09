@@ -48,6 +48,7 @@ public static class ModSettings
     public static readonly Setting<bool> DisableScreamEffect = new("VFX", nameof(DisableScreamEffect), true);
     public static readonly Setting<bool> DisableSpookyScreamEffect = new("VFX", nameof(DisableSpookyScreamEffect), true);
     public static readonly Setting<bool> DisableInsatiableSandfalls = new("VFX", nameof(DisableInsatiableSandfalls), true);
+    public static readonly Setting<bool> DisableOtherInsatiableSandEffects = new("VFX", nameof(DisableOtherInsatiableSandEffects), true);
 
     public static readonly Setting<bool> DisableRareCardGlow = new("VFX", nameof(DisableRareCardGlow), true);
     public static readonly Setting<bool> DisableUncommonCardGlow = new("VFX", nameof(DisableUncommonCardGlow), true);
