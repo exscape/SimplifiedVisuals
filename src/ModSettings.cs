@@ -44,6 +44,8 @@ public static class ModSettings
     // VFX
     public static readonly Setting<bool> DisableBigSlashEffect = new("VFX", nameof(DisableBigSlashEffect), true);
     public static readonly Setting<bool> DisablePurpleDoomOverlay = new("VFX", nameof(DisablePurpleDoomOverlay), true);
+    public static readonly Setting<bool> DisableRareCardGlow = new("VFX", nameof(DisableRareCardGlow), true);
+    public static readonly Setting<bool> DisableUncommonCardGlow = new("VFX", nameof(DisableUncommonCardGlow), true);
 
     // Timeline
     public static readonly Setting<bool> FreezeBackgroundStars = new("Timeline", nameof(FreezeBackgroundStars), true);
