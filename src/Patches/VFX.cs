@@ -76,3 +76,23 @@ public static class NRadialBlurVfx_Activate_Patch
         return !ModSettings.DisableRadialBlurEffect;
     }
 }
+
+// Used by Ceremonial Beast, Devoted Sculptor, Terror Eel, The Insatiable
+[HarmonyPatch(typeof(NScreamVfx), nameof(NScreamVfx._Ready))]
+public static class NScreamVfx__Ready_Patch
+{
+    public static bool Prefix(NScreamVfx __instance)
+    {
+        return !ModSettings.DisableScreamEffect;
+    }
+}
+
+// Used by Haunted Ship, Soul Fysh
+[HarmonyPatch(typeof(NSpookyScreamVfx), nameof(NSpookyScreamVfx._Ready))]
+public static class NSpookyScreamVfx__Ready_Patch
+{
+    public static bool Prefix(NSpookyScreamVfx __instance)
+    {
+        return !ModSettings.DisableSpookyScreamEffect;
+    }
+}
