@@ -35,28 +35,29 @@ public static class ModSettings
     private static readonly List<IModSetting> _allSettings = [];
     internal static void Register(IModSetting setting) => _allSettings.Add(setting);
 
-    // Events
-    public static readonly Setting<bool> DisableRainEffect = new("Events", nameof(DisableRainEffect), true);
+    // CombatEffects
+    public static readonly Setting<bool> DisableBigSlashEffect = new("CombatEffects", nameof(DisableBigSlashEffect), true);
+    public static readonly Setting<bool> DisablePurpleDoomOverlay = new("CombatEffects", nameof(DisablePurpleDoomOverlay), true);
+    public static readonly Setting<bool> DisableRadialBlurEffect = new("CombatEffects", nameof(DisableRadialBlurEffect), true);
+    public static readonly Setting<bool> DisableScreamEffect = new("CombatEffects", nameof(DisableScreamEffect), true);
+    public static readonly Setting<bool> DisableSpookyScreamEffect = new("CombatEffects", nameof(DisableSpookyScreamEffect), true);
+
+    // Environments
+    public static readonly Setting<bool> DisableInsatiableSandfalls = new("Environments", nameof(DisableInsatiableSandfalls), true);
+    public static readonly Setting<bool> DisableOtherInsatiableSandEffects = new("Environments", nameof(DisableOtherInsatiableSandEffects), true);
+    public static readonly Setting<bool> DisableRainEffect = new("Environments", nameof(DisableRainEffect), true);
 
     // Gameplay
     public static readonly Setting<bool> QuickerDraw = new("Gameplay", nameof(QuickerDraw), true);
-
-    // VFX
-    public static readonly Setting<bool> DisableBigSlashEffect = new("VFX", nameof(DisableBigSlashEffect), true);
-    public static readonly Setting<bool> DisablePurpleDoomOverlay = new("VFX", nameof(DisablePurpleDoomOverlay), true);
-    public static readonly Setting<bool> DisableRadialBlurEffect = new("VFX", nameof(DisableRadialBlurEffect), true);
-    public static readonly Setting<bool> DisableScreamEffect = new("VFX", nameof(DisableScreamEffect), true);
-    public static readonly Setting<bool> DisableSpookyScreamEffect = new("VFX", nameof(DisableSpookyScreamEffect), true);
-    public static readonly Setting<bool> DisableInsatiableSandfalls = new("VFX", nameof(DisableInsatiableSandfalls), true);
-    public static readonly Setting<bool> DisableOtherInsatiableSandEffects = new("VFX", nameof(DisableOtherInsatiableSandEffects), true);
-
-    public static readonly Setting<bool> DisableRareCardGlow = new("VFX", nameof(DisableRareCardGlow), true);
-    public static readonly Setting<bool> DisableUncommonCardGlow = new("VFX", nameof(DisableUncommonCardGlow), true);
 
     // Timeline
     public static readonly Setting<bool> FreezeBackgroundStars = new("Timeline", nameof(FreezeBackgroundStars), true);
     public static readonly Setting<bool> HideConfetti = new("Timeline", nameof(HideConfetti), true);
     public static readonly Setting<bool> DisableUnlockShockwaves = new("Timeline", nameof(DisableUnlockShockwaves), true);
+
+    // UI
+    public static readonly Setting<bool> DisableRareCardGlow = new("UI", nameof(DisableRareCardGlow), true);
+    public static readonly Setting<bool> DisableUncommonCardGlow = new("UI", nameof(DisableUncommonCardGlow), true);
 
     public static void Load()
     {

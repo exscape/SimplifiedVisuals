@@ -45,30 +45,6 @@ public static class NDoomOverlayVfx__Patch
     }
 }
 
-// Disables the goldish glow around rare cards
-[HarmonyPatch(typeof(NCardRareGlow), nameof(NCardRareGlow.Create))]
-public static class NCardRareGlow_Create_Patch
-{
-    public static bool Prefix(ref NCardRareGlow? __result)
-    {
-        if (!ModSettings.DisableRareCardGlow) return true;
-        __result = null;
-        return false;
-    }
-}
-
-// Disables the blueish glow around uncommon cards
-[HarmonyPatch(typeof(NCardUncommonGlow), nameof(NCardUncommonGlow.Create))]
-public static class NCardUncommonGlow_Create_Patch
-{
-    public static bool Prefix(ref NCardUncommonGlow? __result)
-    {
-        if (!ModSettings.DisableUncommonCardGlow) return true;
-        __result = null;
-        return false;
-    }
-}
-
 // Disables the radial blur effect used by several encounters:
 // Bygone Effigy, Ceremonial Beast, Mecha Knight, Shrinker Beetle, Vantom
 [HarmonyPatch(typeof(NRadialBlurVfx), nameof(NRadialBlurVfx.Activate))]
@@ -97,49 +73,5 @@ public static class NSpookyScreamVfx__Ready_Patch
     public static bool Prefix(NSpookyScreamVfx __instance)
     {
         return !ModSettings.DisableSpookyScreamEffect;
-    }
-}
-
-// Hide The Insatiable "waterfalls" (sandfalls)
-[HarmonyPatch(typeof(NCombatBackground), nameof(NCombatBackground.Create))]
-public static class DisableWaterfallsPatch
-{
-    public static void Postfix(NCombatBackground __result)
-    {
-        if (!__result.SceneFilePath.Contains("the_insatiable_boss")) return;
-
-        if (ModSettings.DisableInsatiableSandfalls)
-        {
-            for (var i = 1; i <= 9; i++)
-            {
-                var sandfall = __result.GetNodeOrNull<Node2D>($"gpu waterfall {i}");
-                if (sandfall == null) continue;
-
-                sandfall.Visible = false;
-                sandfall.ProcessMode = Node.ProcessModeEnum.Disabled;
-            }
-        }
-
-        if (!ModSettings.DisableOtherInsatiableSandEffects) return;
-
-        foreach (var child in __result.FindChildren("*sand*"))
-        {
-            if (child is not GpuParticles2D gpuParticles) continue;
-            gpuParticles.ProcessMode = Node.ProcessModeEnum.Disabled;
-            gpuParticles.Visible = false;
-        }
-    }
-}
-
-// Freeze swirling sand around The Insatiable
-[HarmonyPatch(typeof(NCreatureVisuals), nameof(NCreatureVisuals._Ready))]
-public static class DisableSandCloudPatch
-{
-    public static void Postfix(NCreatureVisuals __instance)
-    {
-        if (!ModSettings.DisableOtherInsatiableSandEffects) return;
-        var sandTransform = __instance.GetNodeOrNull<Node2D>("Visuals/SandSlotNode/GroundSandMasterTransform");
-        if (sandTransform == null) return;
-        sandTransform.ProcessMode = Node.ProcessModeEnum.Disabled;
     }
 }
