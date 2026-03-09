@@ -2,7 +2,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 
-namespace SimplifiedAnimations;
+namespace SimplifiedAnimations.Patches;
 
 // Reduce time spent between card draws; one card is drawn, then this delay is applied, then another is drawn, etc.
 // Cards will essentially be drawn and move together.

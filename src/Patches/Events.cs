@@ -2,7 +2,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
-namespace SimplifiedAnimations;
+namespace SimplifiedAnimations.Patches;
 
 // Hides the rain used in the Slippery Bridge event
 [HarmonyPatch(typeof(NRainVfx), nameof(NRainVfx.Create))]
