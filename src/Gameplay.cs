@@ -1,28 +1,8 @@
-﻿using HarmonyLib;
-using MegaCrit.Sts2.Core.Nodes.Vfx;
-using System.Reflection.Emit;
+﻿using System.Reflection.Emit;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 
 namespace SimplifiedAnimations;
-
-[HarmonyPatch(typeof(NBigSlashVfx), nameof(NBigSlashVfx._Ready))]
-public static class NBigSlashVfx__Ready_Patch
-{
-    public static bool Prefix(NBigSlashVfx __instance)
-    {
-        return !ModSettings.DisableBigSlashEffect;
-    }
-}
-
-[HarmonyPatch(typeof(NBigSlashImpactVfx), nameof(NBigSlashImpactVfx._Ready))]
-public static class NBigSlashImpactVfx__Ready_Patch
-{
-    public static bool Prefix(NBigSlashImpactVfx __instance)
-    {
-        return !ModSettings.DisableBigSlashEffect;
-    }
-
-}
 
 // Reduce time spent between card draws; one card is drawn, then this delay is applied, then another is drawn, etc.
 // Cards will essentially be drawn and move together.

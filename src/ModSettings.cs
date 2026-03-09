@@ -1,21 +1,24 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using Godot;
+﻿using Godot;
 namespace SimplifiedAnimations;
 
 public static class ModSettings
 {
     private static readonly ConfigFile _config = new();
 
-    // Cards section
-    public static bool DisableBigSlashEffect { get; private set; } = true;
-    public static bool QuickerDraw { get; private set; } = true;
-
     // Events section
     public static bool DisableRainEffect { get; private set; } = true;
 
+    // Gameplay section
+    public static bool QuickerDraw { get; private set; } = true;
+    //public static float HandDrawSpeed { get; private set; } = 2f;
+
+    //VFX section
+    public static bool DisableBigSlashEffect { get; private set; } = true;
+    public static bool DisablePurpleDoomOverlay { get; private set; } = true;
+
     // Timeline section
-    public static bool HideConfetti { get; private set; } = true;
     public static bool FreezeBackgroundStars { get; private set; } = true;
+    public static bool HideConfetti { get; private set; } = true;
     public static bool DisableUnlockShockwaves { get; private set; } = true;
 
     public static void Load()
@@ -35,15 +38,19 @@ public static class ModSettings
         {
             Console.WriteLine("[SimplifiedAnimations] Loaded configuration.ini");
 
-            // Cards section
-            DisableBigSlashEffect = (bool)_config.GetValue("Cards", "DisableBigSlashEffect", DisableBigSlashEffect);
-
             // Events section
             DisableRainEffect = (bool)_config.GetValue("Events", "DisableRainEffect", DisableRainEffect);
 
+            // Gameplay section
+            QuickerDraw = (bool)_config.GetValue("Gameplay", "QuickerDraw", QuickerDraw);
+
+            // VFX section
+            DisableBigSlashEffect = (bool)_config.GetValue("VFX", "DisableBigSlashEffect", DisableBigSlashEffect);
+            DisablePurpleDoomOverlay = (bool)_config.GetValue("VFX", "DisablePurpleDoomOverlay", DisablePurpleDoomOverlay);
+
             // Timeline section
-            HideConfetti = (bool)_config.GetValue("Timeline", "HideConfetti", HideConfetti);
             FreezeBackgroundStars = (bool)_config.GetValue("Timeline", "FreezeBackgroundStars", FreezeBackgroundStars);
+            HideConfetti = (bool)_config.GetValue("Timeline", "HideConfetti", HideConfetti);
             DisableUnlockShockwaves = (bool)_config.GetValue("Timeline", "DisableUnlockShockwaves", DisableUnlockShockwaves);
         }
         else
