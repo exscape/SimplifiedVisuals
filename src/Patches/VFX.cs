@@ -65,3 +65,14 @@ public static class NCardUncommonGlow_Create_Patch
         return false;
     }
 }
+
+// Disables the radial blur effect used by several encounters:
+// Bygone Effigy, Ceremonial Beast, Mecha Knight, Shrinker Beetle, Vantom
+[HarmonyPatch(typeof(NRadialBlurVfx), nameof(NRadialBlurVfx.Activate))]
+public static class NRadialBlurVfx_Activate_Patch
+{
+    public static bool Prefix(NRadialBlurVfx __instance)
+    {
+        return !ModSettings.DisableRadialBlurEffect;
+    }
+}
