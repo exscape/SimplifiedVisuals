@@ -1,25 +1,54 @@
 ﻿using Godot;
+
 namespace SimplifiedAnimations;
+
+public interface IModSetting
+{
+    void LoadFrom(ConfigFile config);
+}
+
+public class Setting<T> : IModSetting
+{
+    private T Value { get; set;  } // The operator overload handles standard reads
+    private string Section { get; }
+    private string Name { get; }
+
+    public Setting(string section, string name, T defaultValue)
+    {
+        Section = section;
+        Name = name;
+        Value = defaultValue;
+        ModSettings.Register(this);
+    }
+
+    public void LoadFrom(ConfigFile config)
+    {
+        Value = config.GetValue(Section, Name, Variant.From(Value)).As<T>();
+    }
+
+    public static implicit operator T(Setting<T> setting) => setting.Value;
+}
 
 public static class ModSettings
 {
     private static readonly ConfigFile _config = new();
+    private static readonly List<IModSetting> _allSettings = [];
+    internal static void Register(IModSetting setting) => _allSettings.Add(setting);
 
-    // Events section
-    public static bool DisableRainEffect { get; private set; } = true;
+    // Events
+    public static readonly Setting<bool> DisableRainEffect = new("Events", nameof(DisableRainEffect), true);
 
-    // Gameplay section
-    public static bool QuickerDraw { get; private set; } = true;
-    //public static float HandDrawSpeed { get; private set; } = 2f;
+    // Gameplay
+    public static readonly Setting<bool> QuickerDraw = new("Gameplay", nameof(QuickerDraw), true);
 
-    //VFX section
-    public static bool DisableBigSlashEffect { get; private set; } = true;
-    public static bool DisablePurpleDoomOverlay { get; private set; } = true;
+    // VFX
+    public static readonly Setting<bool> DisableBigSlashEffect = new("VFX", nameof(DisableBigSlashEffect), true);
+    public static readonly Setting<bool> DisablePurpleDoomOverlay = new("VFX", nameof(DisablePurpleDoomOverlay), true);
 
-    // Timeline section
-    public static bool FreezeBackgroundStars { get; private set; } = true;
-    public static bool HideConfetti { get; private set; } = true;
-    public static bool DisableUnlockShockwaves { get; private set; } = true;
+    // Timeline
+    public static readonly Setting<bool> FreezeBackgroundStars = new("Timeline", nameof(FreezeBackgroundStars), true);
+    public static readonly Setting<bool> HideConfetti = new("Timeline", nameof(HideConfetti), true);
+    public static readonly Setting<bool> DisableUnlockShockwaves = new("Timeline", nameof(DisableUnlockShockwaves), true);
 
     public static void Load()
     {
@@ -30,28 +59,17 @@ public static class ModSettings
             return;
         }
 
-        var ConfigPath = Path.Combine([gameDir, "mods", "SimplifiedAnimations", "configuration.ini"]);
-
-        var err = _config.Load(ConfigPath);
+        var configPath = Path.Combine(gameDir, "mods", "SimplifiedAnimations", "configuration.ini");
+        var err = _config.Load(configPath);
 
         if (err == Error.Ok)
         {
             Console.WriteLine("[SimplifiedAnimations] Loaded configuration.ini");
 
-            // Events section
-            DisableRainEffect = (bool)_config.GetValue("Events", "DisableRainEffect", DisableRainEffect);
-
-            // Gameplay section
-            QuickerDraw = (bool)_config.GetValue("Gameplay", "QuickerDraw", QuickerDraw);
-
-            // VFX section
-            DisableBigSlashEffect = (bool)_config.GetValue("VFX", "DisableBigSlashEffect", DisableBigSlashEffect);
-            DisablePurpleDoomOverlay = (bool)_config.GetValue("VFX", "DisablePurpleDoomOverlay", DisablePurpleDoomOverlay);
-
-            // Timeline section
-            FreezeBackgroundStars = (bool)_config.GetValue("Timeline", "FreezeBackgroundStars", FreezeBackgroundStars);
-            HideConfetti = (bool)_config.GetValue("Timeline", "HideConfetti", HideConfetti);
-            DisableUnlockShockwaves = (bool)_config.GetValue("Timeline", "DisableUnlockShockwaves", DisableUnlockShockwaves);
+            foreach (var setting in _allSettings)
+            {
+                setting.LoadFrom(_config);
+            }
         }
         else
         {
