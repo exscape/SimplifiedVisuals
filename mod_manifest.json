@@ -1,7 +1,11 @@
 {
-  "pck_name": "SimplifiedAnimations",
+  "id": "SimplifiedAnimations",
   "name": "Simplified Animations",
   "author": "exscape",
-  "description": "Adds settings to hide or replace certain animations.",
-  "version": "0.1.0"
+  "description": "Adds settings to hide or replace certain visuals and animations.",
+  "version": "v0.1.0",
+  "has_pck": false,
+  "has_dll": true,
+  "dependencies": [],
+  "affects_gameplay": false
 }
