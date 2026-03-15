@@ -43,6 +43,7 @@ public static class ModSettings
     public static readonly Setting<bool> DisableSpookyScreamEffect = new("CombatEffects", nameof(DisableSpookyScreamEffect), true);
 
     public static readonly Setting<bool> DisableRegentAttackEffect = new("CombatEffects", nameof(DisableRegentAttackEffect), false);
+    public static readonly Setting<bool> DisableSovereignBladeMovement = new("CombatEffects", nameof(DisableSovereignBladeMovement), true);
 
     // Environments
     public static readonly Setting<bool> DisableInsatiableSandfalls = new("Environments", nameof(DisableInsatiableSandfalls), true);

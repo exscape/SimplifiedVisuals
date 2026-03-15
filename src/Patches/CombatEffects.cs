@@ -1,4 +1,7 @@
-﻿using HarmonyLib;
+﻿using Godot;
+using HarmonyLib;
+using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Nodes.HoverTips;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace SimplifiedVisuals.Patches;
@@ -79,5 +82,38 @@ public static class NRegentVfx_Attack_Patch
     public static bool Prefix(NRegentVfx __instance)
     {
         return !ModSettings.DisableRegentAttackEffect;
+    }
+}
+
+// Remove/counteract the sovereign blade orbit+bobbing animations
+[HarmonyPatch(typeof(NSovereignBladeVfx), nameof(NSovereignBladeVfx._Process))]
+public static class NSovereignBladeVfx__Process_Patch
+{
+    public static bool Prefix(
+        NSovereignBladeVfx __instance,
+        double delta,
+        Path2D? ____orbitPath,
+        NHoverTipSet? ____hoverTip,
+        MegaSprite? ____animController)
+    {
+        if (!ModSettings.DisableSovereignBladeMovement) return true;
+
+        // Disable the up/down bobbing
+        var currentTrack = ____animController?.GetAnimationState().GetCurrent(0);
+        if (currentTrack?.GetAnimation().GetName() == "idle_loop")
+        {
+            currentTrack.SetTimeScale(0f);
+        }
+
+        // Disable the orbit
+        if (____orbitPath == null) return true;
+        var bakedLength = ____orbitPath.Curve.GetBakedLength();
+
+        if (____hoverTip == null)
+        {
+            __instance.OrbitProgress -= 60.0 * delta / bakedLength;
+        }
+
+        return true;
     }
 }
