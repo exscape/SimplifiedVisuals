@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
-namespace SimplifiedAnimations.Patches;
+namespace SimplifiedVisuals.Patches;
 
 // Hide The Insatiable "waterfalls" (sandfalls)
 [HarmonyPatch(typeof(NCombatBackground), nameof(NCombatBackground.Create))]

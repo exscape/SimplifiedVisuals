@@ -3,7 +3,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Vfx.Cards;
 
-namespace SimplifiedAnimations.Patches;
+namespace SimplifiedVisuals.Patches;
 
 // Disables the goldish glow around rare cards -- also see the patch below
 [HarmonyPatch(typeof(NCardRareGlow), nameof(NCardRareGlow.Create))]
@@ -29,9 +29,9 @@ public static class NCard_ActivateRewardScreenGlow_Patch
             var sparkles = Traverse.Create(__instance).Field("_sparkles").GetValue<GpuParticles2D>();
             sparkles.Visible = false;
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            Console.WriteLine("[SimplifiedAnimations] Failed to remove sparkles from rare card reward");
+            Console.WriteLine("[SimplifiedVisuals] Failed to remove sparkles from rare card reward");
         }
     }
 }

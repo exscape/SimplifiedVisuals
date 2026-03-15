@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Nodes.Screens.Timeline;
 using MegaCrit.Sts2.Core.Nodes.Screens.Timeline.UnlockScreens;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
-namespace SimplifiedAnimations.Patches;
+namespace SimplifiedVisuals.Patches;
 
 // Freeze the animated stars in the background (and apparently foreground) of the timeline
 [HarmonyPatch(typeof(NTimelineScreen), nameof(NTimelineScreen._Ready))]

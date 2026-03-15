@@ -1,11 +1,7 @@
-﻿using Godot;
-using HarmonyLib;
-using MegaCrit.Sts2.Core.Nodes.Combat;
-using MegaCrit.Sts2.Core.Nodes.Rooms;
+﻿using HarmonyLib;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
-using MegaCrit.Sts2.Core.Nodes.Vfx.Cards;
 
-namespace SimplifiedAnimations.Patches;
+namespace SimplifiedVisuals.Patches;
 
 // Hide the Big Slash effect (used by Perfected Strike, Sovereign Blade and the Mecha Knight)
 [HarmonyPatch(typeof(NBigSlashVfx), nameof(NBigSlashVfx._Ready))]

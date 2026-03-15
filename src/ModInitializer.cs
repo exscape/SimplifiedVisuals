@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 
-namespace SimplifiedAnimations;
+namespace SimplifiedVisuals;
 
 [ModInitializer("Initialize")]
 public static class ModInitializer
@@ -10,7 +10,7 @@ public static class ModInitializer
     public static void Initialize()
     {
         ModSettings.Load();
-        harmony = new Harmony("SimplifiedAnimations");
+        harmony = new Harmony("SimplifiedVisuals");
         harmony.PatchAll();
     }
 }

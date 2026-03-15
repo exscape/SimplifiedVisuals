@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace SimplifiedAnimations;
+namespace SimplifiedVisuals;
 
 public interface IModSetting
 {
@@ -66,16 +66,16 @@ public static class ModSettings
         var gameDir = Path.GetDirectoryName(OS.GetExecutablePath());
         if (gameDir == null)
         {
-            Console.WriteLine("[SimplifiedAnimations] Failed to load config: unable to figure out game directory");
+            Console.WriteLine("[SimplifiedVisuals] Failed to load config: unable to figure out game directory");
             return;
         }
 
-        var configPath = Path.Combine(gameDir, "mods", "SimplifiedAnimations", "configuration.ini");
+        var configPath = Path.Combine(gameDir, "mods", "SimplifiedVisuals", "configuration.ini");
         var err = _config.Load(configPath);
 
         if (err == Error.Ok)
         {
-            Console.WriteLine("[SimplifiedAnimations] Loaded configuration.ini");
+            Console.WriteLine("[SimplifiedVisuals] Loaded configuration.ini");
 
             foreach (var setting in _allSettings)
             {
@@ -84,7 +84,7 @@ public static class ModSettings
         }
         else
         {
-            Console.WriteLine("[SimplifiedAnimations] No config found! Using default values.");
+            Console.WriteLine("[SimplifiedVisuals] No config found! Using default values.");
         }
     }
 }
