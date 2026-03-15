@@ -7,7 +7,7 @@ public interface IModSetting
     void LoadFrom(ConfigFile config);
 }
 
-public class Setting<T> : IModSetting
+public class Setting<[MustBeVariant] T> : IModSetting
 {
     private T Value { get; set;  } // The operator overload handles standard reads
     private string Section { get; }

@@ -78,7 +78,7 @@ public static class ReplaceOffscreenVfxPatch
     [HarmonyPatch(typeof(NEpochOffscreenVfx), nameof(NEpochOffscreenVfx._Process))]
     public static class UpdateOffscreenArrowPatch
     {
-        public static void Postfix(NEpochOffscreenVfx __instance)
+        public static void Postfix(NEpochOffscreenVfx __instance, bool ____showVfx)
         {
             if (!ModSettings.DisableUnlockShockwaves) return;
 
@@ -111,8 +111,7 @@ public static class ReplaceOffscreenVfxPatch
             }
 
             offscreenArrow.GlobalPosition = new Vector2(xPosition, yPosition);
-            var traverse = Traverse.Create(__instance);
-            offscreenArrow.Visible = traverse.Field("_showVfx").GetValue<bool>();
+            offscreenArrow.Visible = ____showVfx;
         }
     }
 }
