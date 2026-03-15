@@ -42,6 +42,8 @@ public static class ModSettings
     public static readonly Setting<bool> DisableScreamEffect = new("CombatEffects", nameof(DisableScreamEffect), true);
     public static readonly Setting<bool> DisableSpookyScreamEffect = new("CombatEffects", nameof(DisableSpookyScreamEffect), true);
 
+    public static readonly Setting<bool> DisableRegentAttackEffect = new("CombatEffects", nameof(DisableRegentAttackEffect), false);
+
     // Environments
     public static readonly Setting<bool> DisableInsatiableSandfalls = new("Environments", nameof(DisableInsatiableSandfalls), true);
     public static readonly Setting<bool> DisableOtherInsatiableSandEffects = new("Environments", nameof(DisableOtherInsatiableSandEffects), true);

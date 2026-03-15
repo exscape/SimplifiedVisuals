@@ -75,3 +75,13 @@ public static class NSpookyScreamVfx__Ready_Patch
         return !ModSettings.DisableSpookyScreamEffect;
     }
 }
+
+// Hide the swords/daggers above the Regent during some attacks (like Strike)
+[HarmonyPatch(typeof(NRegentVfx), "Attack")]
+public static class NRegentVfx_Attack_Patch
+{
+    public static bool Prefix(NRegentVfx __instance)
+    {
+        return !ModSettings.DisableRegentAttackEffect;
+    }
+}
