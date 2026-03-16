@@ -1,4 +1,10 @@
 {
+  "SIMPLIFIEDVISUALS-COMBAT_EFFECTS.title": "Combat Effects",
+  "SIMPLIFIEDVISUALS-ENVIRONMENTS.title": "Environments",
+  "SIMPLIFIEDVISUALS-GAMEPLAY.title": "Gameplay",
+  "SIMPLIFIEDVISUALS-TIMELINE.title": "Timeline/Epochs",
+  "SIMPLIFIEDVISUALS-USER_INTERFACE.title": "User Interface",
+
   "SIMPLIFIEDVISUALS-DISABLE_BIG_SLASH_EFFECT.title": "Disable Big Slash effect",
   "SIMPLIFIEDVISUALS-DISABLE_PURPLE_DOOM_OVERLAY.title": "Disable purple Doom overlay",
   "SIMPLIFIEDVISUALS-DISABLE_RADIAL_BLUR_EFFECT.title": "Disable radial blur effect",
