@@ -42,7 +42,7 @@ public static class NCardUncommonGlow_Create_Patch
 {
     public static bool Prefix(ref NCardUncommonGlow? __result)
     {
-        if (!ModSettings.DisableUncommonCardGlow) return true;
+        if (!ModSettings.DisableRareCardGlow) return true;
         __result = null;
         return false;
     }

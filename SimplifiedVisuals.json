@@ -2,9 +2,9 @@
   "id": "SimplifiedVisuals",
   "name": "Simplified Visuals",
   "author": "exscape",
-  "description": "Adds settings to hide or replace certain visuals and animations. See configuration.ini in mods folder for settings!",
+  "description": "Adds settings to hide or replace certain visuals and animations.",
   "version": "v0.1.0",
-  "has_pck": false,
+  "has_pck": true,
   "has_dll": true,
   "dependencies": ["BaseLib"],
   "affects_gameplay": false
