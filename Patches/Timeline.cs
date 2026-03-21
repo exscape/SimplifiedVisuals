@@ -50,7 +50,7 @@ public static class ReplaceOffscreenVfxPatch
         // Hide the original effect
         __result.SelfModulate = Colors.Transparent;
 
-        // Hide all original child nodes (if any)
+        // Hide all original child nodes
         foreach (var child in __result.GetChildren())
         {
             if (child is CanvasItem canvasItem)
@@ -69,6 +69,7 @@ public static class ReplaceOffscreenVfxPatch
         offscreenArrow.Texture = PreloadManager.Cache.GetTexture2D("res://images/ui/combat/targeting_arrow_head.png");
         offscreenArrow.Name = "OffscreenEpochArrow";
         offscreenArrow.Modulate = new Color("EE82EE");
+        offscreenArrow.Visible = false; // Updated below
 
         offscreenArrow.TopLevel = true;
         __result.AddChild(offscreenArrow);

@@ -24,7 +24,6 @@ public static class NBigSlashImpactVfx__Ready_Patch
     {
         return !ModSettings.DisableBigSlashEffect;
     }
-
 }
 
 // Hide the purple screen overlay when an enemy dies to Doom (but not the void hole that draws the enemy down)
