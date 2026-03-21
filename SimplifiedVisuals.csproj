@@ -78,7 +78,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" PrivateAssets="All"/>
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*"/>
         <AdditionalFiles Include="SimplifiedVisuals/localization/**/*.json"/>
     </ItemGroup>
@@ -105,6 +104,20 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="TODO.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="SimplifiedVisuals\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="BaseLib">
+        <HintPath>D:\SteamLibrary\steamapps\common\Slay the Spire 2\mods\BaseLib\BaseLib.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
     <Target Name="CheckDependencyPaths">
