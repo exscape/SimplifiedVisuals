@@ -1,4 +1,6 @@
 {
+  "SIMPLIFIEDVISUALS.mod_title": "Simplified Visuals",
+
   "SIMPLIFIEDVISUALS-COMBAT_EFFECTS.title": "Combat Effects",
   "SIMPLIFIEDVISUALS-ENVIRONMENTS.title": "Environments",
   "SIMPLIFIEDVISUALS-GAMEPLAY.title": "Gameplay",
@@ -6,18 +8,47 @@
   "SIMPLIFIEDVISUALS-USER_INTERFACE.title": "User Interface",
 
   "SIMPLIFIEDVISUALS-DISABLE_BIG_SLASH_EFFECT.title": "Disable Big Slash effect",
+  "SIMPLIFIEDVISUALS-DISABLE_BIG_SLASH_EFFECT.hover.desc": "Disables the bright flashing Big Slash visual effect, used by [gold]Perfected Strike[/gold], [gold]Sovereign Blade[/gold] and the [gold]Mecha Knight[/gold].",
+
   "SIMPLIFIEDVISUALS-DISABLE_PURPLE_DOOM_OVERLAY.title": "Disable purple Doom overlay",
+  "SIMPLIFIEDVISUALS-DISABLE_PURPLE_DOOM_OVERLAY.hover.desc": "Disables the purple screen effect when an enemy dies because of [gold]Doom[/gold].",
+
   "SIMPLIFIEDVISUALS-DISABLE_RADIAL_BLUR_EFFECT.title": "Disable radial blur effect",
+  "SIMPLIFIEDVISUALS-DISABLE_RADIAL_BLUR_EFFECT.hover.desc": "Disable the radial blur/distortion effect used by some enemy attacks ([gold]Bygone Effigy[/gold], [gold]Ceremonial Beast[/gold], [gold]Mecha Knight[/gold], [gold]Shrinker Beetle[/gold], [gold]Vantom[/gold]).",
+
   "SIMPLIFIEDVISUALS-DISABLE_SCREAM_EFFECT.title": "Disable \"scream\" effect",
+  "SIMPLIFIEDVISUALS-DISABLE_SCREAM_EFFECT.hover.desc": "Disable the \"scream\" effect (concentric circles moving outwards) used by some enemy attacks ([gold]Ceremonial Beast[/gold], [gold]Devoted Sculptor[/gold], [gold]Terror Eel[/gold], [gold]The Insatiable[/gold]).",
+
   "SIMPLIFIEDVISUALS-DISABLE_SPOOKY_SCREAM_EFFECT.title": "Disable \"spooky scream\" effect",
+  "SIMPLIFIEDVISUALS-DISABLE_SPOOKY_SCREAM_EFFECT.hover.desc": "Disable the similar \"spooky scream\" effect used by some other enemy attacks ([gold]Haunted Ship[/gold], [gold]Soul Fysh[/gold]).",
+
   "SIMPLIFIEDVISUALS-DISABLE_REGENT_ATTACK_EFFECT.title": "Disable Regent attack animation",
+  "SIMPLIFIEDVISUALS-DISABLE_REGENT_ATTACK_EFFECT.hover.desc": "Disables the animated swords above the [gold]Regent[/gold] during many attacks (including [gold]Strike[/gold]).",
+
   "SIMPLIFIEDVISUALS-DISABLE_SOVEREIGN_BLADE_MOVEMENT.title": "Disable Sovereign Blade movement",
+  "SIMPLIFIEDVISUALS-DISABLE_SOVEREIGN_BLADE_MOVEMENT.hover.desc": "Makes the [gold]Sovereign Blade[/gold] stay in one place when idle.",
+
   "SIMPLIFIEDVISUALS-DISABLE_INSATIABLE_SANDFALLS.title": "Disable Insatiable sandfalls",
-  "SIMPLIFIEDVISUALS-DISABLE_OTHER_INSATIABLE_SAND_EFFECTS.title": "Disable other Insatiable effects",
+  "SIMPLIFIEDVISUALS-DISABLE_INSATIABLE_SANDFALLS.hover.desc": "Disables the \"sandfalls\" in the background of [gold]The Insatiable[/gold].",
+
+  "SIMPLIFIEDVISUALS-DISABLE_OTHER_INSATIABLE_SAND_EFFECTS.title": "Disable other Insatiable sand effects",
+  "SIMPLIFIEDVISUALS-DISABLE_OTHER_INSATIABLE_SAND_EFFECTS.hover.desc": "Disables the other sand effects (but the sandfalls are left unless disabled above).",
+
   "SIMPLIFIEDVISUALS-DISABLE_RAIN_EFFECT.title": "Disable rain effect",
+  "SIMPLIFIEDVISUALS-DISABLE_RAIN_EFFECT.hover.desc": "Hides the rain effect in the [gold]Slippery Bridge[/gold] event.",
+
   "SIMPLIFIEDVISUALS-QUICKER_DRAW.title": "Quicker draw animation",
+  "SIMPLIFIEDVISUALS-QUICKER_DRAW.hover.desc": "Reduces (essentially removes) the delay between drawing one card and drawing the next, making all cards move together to the hand.",
+
   "SIMPLIFIEDVISUALS-FREEZE_BACKGROUND_STARS.title": "Freeze timeline star background",
+  "SIMPLIFIEDVISUALS-FREEZE_BACKGROUND_STARS.hover.desc": "Disable the movement of the starry background in the Timeline.",
+
   "SIMPLIFIEDVISUALS-HIDE_CONFETTI.title": "Hide confetti behind unlocks",
+  "SIMPLIFIEDVISUALS-HIDE_CONFETTI.hover.desc": "Hides the constant confetti from the unlock screens (for example relics or cards).",
+
   "SIMPLIFIEDVISUALS-DISABLE_UNLOCK_SHOCKWAVES.title": "Disable Epoch pulse effect",
-  "SIMPLIFIEDVISUALS-DISABLE_RARE_CARD_GLOW.title": "Disable rare/uncommon card glow"
+  "SIMPLIFIEDVISUALS-DISABLE_UNLOCK_SHOCKWAVES.hover.desc": "Disable the radiating shockwave animation on the Epoch buttons; also replaces the offscreen animation with an arrow, showing that there are more unlocks available by scrolling left, right or both.",
+
+  "SIMPLIFIEDVISUALS-DISABLE_RARE_CARD_GLOW.title": "Disable rare/uncommon card effects",
+  "SIMPLIFIEDVISUALS-DISABLE_RARE_CARD_GLOW.hover.desc": "Disables the glow and sparkle effect around rare/uncommon cards."
 }

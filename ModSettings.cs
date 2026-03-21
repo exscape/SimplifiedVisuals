@@ -2,6 +2,7 @@
 
 namespace SimplifiedVisuals;
 
+[HoverTipsByDefault]
 public class ModSettings : SimpleModConfig
 {
     [ConfigSection("CombatEffects")]
