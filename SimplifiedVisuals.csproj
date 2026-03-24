@@ -80,6 +80,7 @@
     <ItemGroup>
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*"/>
         <AdditionalFiles Include="SimplifiedVisuals/localization/**/*.json"/>
+        <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -127,11 +128,12 @@
                 Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')"/>
     </Target>
 
-    <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
-        <Message Text="Copying .dll and manifest to mods folder." Importance="high"/>
+    <Target Name="CopyToModsFolderOnBuild" AfterTargets="PackPck">
+        <Message Text="Copying .dll, .pck and manifest to mods folder." Importance="high"/>
 
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Copy SourceFiles="SimplifiedVisuals.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+        <Copy Condition="Exists('$(OutputPath)$(AssemblyName).pck')" SourceFiles="$(OutputPath)$(AssemblyName).pck" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
 
         <Message Text="Copying BaseLib to mods folder." Importance="high" Condition="!Exists('$(ModsPath)BaseLib/BaseLib.dll')" />
         <ItemGroup>
@@ -146,17 +148,17 @@
     </Target>
 
     <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
-    <Message Text="Exporting Godot .pck to project root..." Importance="high"/>
+        <Message Text="Exporting Godot .pck to project root..." Importance="high"/>
 
-    <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ProjectDir)$(MSBuildProjectName).pck&quot;"
-          EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
-          ContinueOnError="WarnAndContinue"/>
+        <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ProjectDir)$(MSBuildProjectName).pck&quot;"
+              EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
+              ContinueOnError="WarnAndContinue"/>
 
-    <Message Text="Copying .pck to mods folder..." Importance="high"/>
-    <Copy SourceFiles="$(ProjectDir)$(MSBuildProjectName).pck"
-          DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"
-          OverwriteReadOnlyFiles="true" />
-</Target>
+        <Message Text="Copying .pck to mods folder..." Importance="high"/>
+        <Copy SourceFiles="$(ProjectDir)$(MSBuildProjectName).pck"
+              DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"
+              OverwriteReadOnlyFiles="true" />
+    </Target>
 
     <Target Name="GodotPublishSkipped" AfterTargets="Publish" Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')">
         <Message Text="Skipping Godot .pck export because GodotPath is not configured." Importance="high"/>
