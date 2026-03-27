@@ -14,14 +14,14 @@ public static class CardPileTween_Patch
 
     public static void Prefix()
     {
-        if (!ModSettings.QuickerDraw) return;
+        if (!Config.QuickerDraw) return;
         previousValue = SaveManager.Instance.PrefsSave.FastMode;
         SaveManager.Instance.PrefsSave.FastMode = FastModeType.Instant;
     }
 
     public static void Postfix()
     {
-        if (!ModSettings.QuickerDraw) return;
+        if (!Config.QuickerDraw) return;
         SaveManager.Instance.PrefsSave.FastMode = previousValue;
     }
 }

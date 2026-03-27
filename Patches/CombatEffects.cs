@@ -12,7 +12,7 @@ public static class NBigSlashVfx__Ready_Patch
 {
     public static bool Prefix(NBigSlashVfx __instance)
     {
-        return !ModSettings.DisableBigSlashEffect;
+        return !Config.DisableBigSlashEffect;
     }
 }
 
@@ -22,7 +22,7 @@ public static class NBigSlashImpactVfx__Ready_Patch
 {
     public static bool Prefix(NBigSlashImpactVfx __instance)
     {
-        return !ModSettings.DisableBigSlashEffect;
+        return !Config.DisableBigSlashEffect;
     }
 }
 
@@ -32,7 +32,7 @@ public static class NDoomOverlayVfx__Patch
 {
     public static bool Prefix(NDoomOverlayVfx __instance)
     {
-        if (!ModSettings.DisablePurpleDoomOverlay) return true;
+        if (!Config.DisablePurpleDoomOverlay) return true;
 
         // We need to keep this, but remove everything else
         Traverse.Create(__instance)
@@ -50,7 +50,7 @@ public static class NRadialBlurVfx_Activate_Patch
 {
     public static bool Prefix(NRadialBlurVfx __instance)
     {
-        return !ModSettings.DisableRadialBlurEffect;
+        return !Config.DisableRadialBlurEffect;
     }
 }
 
@@ -60,7 +60,7 @@ public static class NScreamVfx__Ready_Patch
 {
     public static bool Prefix(NScreamVfx __instance)
     {
-        return !ModSettings.DisableScreamEffect;
+        return !Config.DisableScreamEffect;
     }
 }
 
@@ -70,7 +70,7 @@ public static class NSpookyScreamVfx__Ready_Patch
 {
     public static bool Prefix(NSpookyScreamVfx __instance)
     {
-        return !ModSettings.DisableSpookyScreamEffect;
+        return !Config.DisableSpookyScreamEffect;
     }
 }
 
@@ -80,7 +80,7 @@ public static class NRegentVfx_Attack_Patch
 {
     public static bool Prefix(NRegentVfx __instance)
     {
-        return !ModSettings.DisableRegentAttackEffect;
+        return !Config.DisableRegentAttackEffect;
     }
 }
 
@@ -95,7 +95,7 @@ public static class NSovereignBladeVfx__Process_Patch
         NHoverTipSet? ____hoverTip,
         MegaSprite? ____animController)
     {
-        if (!ModSettings.DisableSovereignBladeMovement) return true;
+        if (!Config.DisableSovereignBladeMovement) return true;
 
         // Disable the up/down bobbing
         var currentTrack = ____animController?.GetAnimationState().GetCurrent(0);
@@ -114,5 +114,21 @@ public static class NSovereignBladeVfx__Process_Patch
         }
 
         return true;
+    }
+}
+
+[HarmonyPatch(typeof(NStarryImpactVfx), nameof(NStarryImpactVfx._Ready))]
+public static class MuteStarryImpactPatch
+{
+    public static void Postfix(Node2D __instance)
+    {
+        if (!Config.MuteStarryImpactEffect) return;
+        var coreVisual = __instance.GetNodeOrNull<CanvasItem>("vfx_starry_impact_core");
+        if (coreVisual != null)
+            coreVisual.SelfModulate = new Color(1.0f, 1.0f, 1.0f, 0.2f);
+
+        var ring = __instance.GetNodeOrNull<CanvasItem>("vfx_common_ring_polar_b");
+        if (ring == null) return;
+        ring.SelfModulate = new Color(1.0f, 1.0f, 1.0f, 0.4f);
     }
 }

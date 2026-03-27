@@ -11,7 +11,7 @@ public static class NCardRareGlow_Create_Patch
 {
     public static bool Prefix(ref NCardRareGlow? __result)
     {
-        if (!ModSettings.DisableRareCardGlow) return true;
+        if (!Config.DisableRareCardGlow) return true;
         __result = null;
         return false;
     }
@@ -22,7 +22,7 @@ public static class NCard_ActivateRewardScreenGlow_Patch
 {
     public static void Postfix(NCard __instance)
     {
-        if (!ModSettings.DisableRareCardGlow) return;
+        if (!Config.DisableRareCardGlow) return;
 
         try
         {
@@ -42,7 +42,7 @@ public static class NCardUncommonGlow_Create_Patch
 {
     public static bool Prefix(ref NCardUncommonGlow? __result)
     {
-        if (!ModSettings.DisableRareCardGlow) return true;
+        if (!Config.DisableRareCardGlow) return true;
         __result = null;
         return false;
     }

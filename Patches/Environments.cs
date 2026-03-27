@@ -14,7 +14,7 @@ public static class DisableWaterfallsPatch
     {
         if (!__result.SceneFilePath.Contains("the_insatiable_boss")) return;
 
-        if (ModSettings.DisableInsatiableSandfalls)
+        if (Config.DisableInsatiableSandfalls)
         {
             for (var i = 1; i <= 9; i++)
             {
@@ -26,7 +26,7 @@ public static class DisableWaterfallsPatch
             }
         }
 
-        if (!ModSettings.DisableOtherInsatiableSandEffects) return;
+        if (!Config.DisableOtherInsatiableSandEffects) return;
 
         foreach (var child in __result.FindChildren("*sand*"))
         {
@@ -43,7 +43,7 @@ public static class DisableSandCloudPatch
 {
     public static void Postfix(NCreatureVisuals __instance)
     {
-        if (!ModSettings.DisableOtherInsatiableSandEffects) return;
+        if (!Config.DisableOtherInsatiableSandEffects) return;
         var sandTransform = __instance.GetNodeOrNull<Node2D>("Visuals/SandSlotNode/GroundSandMasterTransform");
         if (sandTransform == null) return;
         sandTransform.ProcessMode = Node.ProcessModeEnum.Disabled;
@@ -56,7 +56,7 @@ public static class RemoveRainVfxPatch
 {
     public static void Postfix(ref NRainVfx __result)
     {
-        if (ModSettings.DisableRainEffect)
+        if (Config.DisableRainEffect)
             __result.SelfModulate = Colors.Transparent;
     }
 }

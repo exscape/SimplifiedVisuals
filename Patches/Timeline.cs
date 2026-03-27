@@ -13,7 +13,7 @@ public static class TimelineFreezeStarsPatch
 {
     public static void Postfix(NTimelineScreen __instance)
     {
-        if (!ModSettings.FreezeBackgroundStars) return;
+        if (!Config.FreezeBackgroundStars) return;
 
         var starsBg = __instance.GetNodeOrNull<GpuParticles2D>("StarsBg");
         var starsFg = __instance.GetNodeOrNull<GpuParticles2D>("StarsFg");
@@ -35,7 +35,7 @@ public static class MuteEpochHighlightPatch
 {
     public static void Postfix(ref NEpochHighlightVfx __result)
     {
-        if (!ModSettings.DisableUnlockShockwaves) return;
+        if (!Config.DisableUnlockShockwaves) return;
         __result.Visible = false;
     }
 }
@@ -45,7 +45,7 @@ public static class ReplaceOffscreenVfxPatch
 {
     public static void Postfix(ref NEpochOffscreenVfx __result)
     {
-        if (!ModSettings.DisableUnlockShockwaves) return;
+        if (!Config.DisableUnlockShockwaves) return;
 
         // Hide the original effect
         __result.SelfModulate = Colors.Transparent;
@@ -81,7 +81,7 @@ public static class ReplaceOffscreenVfxPatch
     {
         public static void Postfix(NEpochOffscreenVfx __instance, bool ____showVfx)
         {
-            if (!ModSettings.DisableUnlockShockwaves) return;
+            if (!Config.DisableUnlockShockwaves) return;
 
             var offscreenArrow = __instance.GetNodeOrNull<Sprite2D>("OffscreenEpochArrow");
             if (offscreenArrow?.Texture == null) return;
@@ -122,7 +122,7 @@ public static class ConfettiKiller
 {
     public static void Mute(Node screen)
     {
-        if (!ModSettings.HideConfetti) return;
+        if (!Config.HideConfetti) return;
 
         var confetti = screen.GetNodeOrNull<GpuParticles2D>("GPUParticles2D");
         if (confetti == null) return;

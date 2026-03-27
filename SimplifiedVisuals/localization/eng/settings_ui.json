@@ -22,6 +22,9 @@
   "SIMPLIFIEDVISUALS-DISABLE_SPOOKY_SCREAM_EFFECT.title": "Disable \"spooky scream\" effect",
   "SIMPLIFIEDVISUALS-DISABLE_SPOOKY_SCREAM_EFFECT.hover.desc": "Disable the similar \"spooky scream\" effect used by some other enemy attacks ([gold]Haunted Ship[/gold], [gold]Soul Fysh[/gold]).",
 
+  "SIMPLIFIEDVISUALS-MUTE_STARRY_IMPACT_EFFECT.title": "Mute Starry Impact effect",
+  "SIMPLIFIEDVISUALS-MUTE_STARRY_IMPACT_EFFECT.hover.desc": "Reduces the intensity of the rather bright impact effect used by many [gold]Regent[/gold] cards: [gold]Astral Pulse[/gold], [gold]Celestial Might[/gold], [gold]Crescent Spear[/gold], [gold]Dying Star[/gold], [gold]Falling Star[/gold], [gold]Make It So[/gold], [gold]Radiate[/gold], [gold]Seven Stars[/gold], [gold]Shining Strike[/gold], [gold]Stardust[/gold].",
+
   "SIMPLIFIEDVISUALS-DISABLE_REGENT_ATTACK_EFFECT.title": "Disable Regent attack animation",
   "SIMPLIFIEDVISUALS-DISABLE_REGENT_ATTACK_EFFECT.hover.desc": "Disables the animated swords above the [gold]Regent[/gold] during many attacks (including [gold]Strike[/gold]).",
 

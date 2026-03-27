@@ -3,7 +3,7 @@
 namespace SimplifiedVisuals;
 
 [HoverTipsByDefault]
-public class ModSettings : SimpleModConfig
+public class Config : SimpleModConfig
 {
     [ConfigSection("CombatEffects")]
     public static bool DisableBigSlashEffect { get; set; } = true;
@@ -11,6 +11,7 @@ public class ModSettings : SimpleModConfig
     public static bool DisableRadialBlurEffect { get; set; } = true;
     public static bool DisableScreamEffect { get; set; } = true;
     public static bool DisableSpookyScreamEffect { get; set; } = true;
+    public static bool MuteStarryImpactEffect { get; set; } = true;
 
     public static bool DisableRegentAttackEffect { get; set; } = false;
     public static bool DisableSovereignBladeMovement { get; set; } = false;
