@@ -10,20 +10,14 @@ namespace SimplifiedVisuals.Patches;
 [HarmonyPatch(typeof(NBigSlashVfx), nameof(NBigSlashVfx._Ready))]
 public static class NBigSlashVfx__Ready_Patch
 {
-    public static bool Prefix(NBigSlashVfx __instance)
-    {
-        return !Config.DisableBigSlashEffect;
-    }
+    public static bool Prefix() => !Config.DisableBigSlashEffect;
 }
 
 // Also hide the impact VFX from Big Slash
 [HarmonyPatch(typeof(NBigSlashImpactVfx), nameof(NBigSlashImpactVfx._Ready))]
 public static class NBigSlashImpactVfx__Ready_Patch
 {
-    public static bool Prefix(NBigSlashImpactVfx __instance)
-    {
-        return !Config.DisableBigSlashEffect;
-    }
+    public static bool Prefix(NBigSlashImpactVfx __instance) => !Config.DisableBigSlashEffect;
 }
 
 // Hide the purple screen overlay when an enemy dies to Doom (but not the void hole that draws the enemy down)
@@ -48,40 +42,28 @@ public static class NDoomOverlayVfx__Patch
 [HarmonyPatch(typeof(NRadialBlurVfx), nameof(NRadialBlurVfx.Activate))]
 public static class NRadialBlurVfx_Activate_Patch
 {
-    public static bool Prefix(NRadialBlurVfx __instance)
-    {
-        return !Config.DisableRadialBlurEffect;
-    }
+    public static bool Prefix(NRadialBlurVfx __instance) => !Config.DisableRadialBlurEffect;
 }
 
 // Used by Ceremonial Beast, Devoted Sculptor, Terror Eel, The Insatiable
 [HarmonyPatch(typeof(NScreamVfx), nameof(NScreamVfx._Ready))]
 public static class NScreamVfx__Ready_Patch
 {
-    public static bool Prefix(NScreamVfx __instance)
-    {
-        return !Config.DisableScreamEffect;
-    }
+    public static bool Prefix(NScreamVfx __instance) => !Config.DisableScreamEffect;
 }
 
 // Used by Haunted Ship, Soul Fysh
 [HarmonyPatch(typeof(NSpookyScreamVfx), nameof(NSpookyScreamVfx._Ready))]
 public static class NSpookyScreamVfx__Ready_Patch
 {
-    public static bool Prefix(NSpookyScreamVfx __instance)
-    {
-        return !Config.DisableSpookyScreamEffect;
-    }
+    public static bool Prefix(NSpookyScreamVfx __instance) => !Config.DisableSpookyScreamEffect;
 }
 
 // Hide the swords/daggers above the Regent during some attacks (like Strike)
 [HarmonyPatch(typeof(NRegentVfx), "Attack")]
 public static class NRegentVfx_Attack_Patch
 {
-    public static bool Prefix(NRegentVfx __instance)
-    {
-        return !Config.DisableRegentAttackEffect;
-    }
+    public static bool Prefix(NRegentVfx __instance) => !Config.DisableRegentAttackEffect;
 }
 
 // Remove/counteract the sovereign blade orbit+bobbing animations
@@ -100,18 +82,14 @@ public static class NSovereignBladeVfx__Process_Patch
         // Disable the up/down bobbing
         var currentTrack = ____animController?.GetAnimationState().GetCurrent(0);
         if (currentTrack?.GetAnimation().GetName() == "idle_loop")
-        {
             currentTrack.SetTimeScale(0f);
-        }
 
         // Disable the orbit
         if (____orbitPath == null) return true;
         var bakedLength = ____orbitPath.Curve.GetBakedLength();
 
         if (____hoverTip == null)
-        {
             __instance.OrbitProgress -= 60.0 * delta / bakedLength;
-        }
 
         return true;
     }

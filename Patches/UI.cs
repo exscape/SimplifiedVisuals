@@ -20,19 +20,12 @@ public static class NCardRareGlow_Create_Patch
 [HarmonyPatch(typeof(NCard), nameof(NCard.ActivateRewardScreenGlow))]
 public static class NCard_ActivateRewardScreenGlow_Patch
 {
-    public static void Postfix(NCard __instance)
+    public static void Postfix(ref GpuParticles2D? ____sparkles)
     {
         if (!Config.DisableRareCardGlow) return;
 
-        try
-        {
-            var sparkles = Traverse.Create(__instance).Field("_sparkles").GetValue<GpuParticles2D>();
-            sparkles.Visible = false;
-        }
-        catch (Exception)
-        {
-            Console.WriteLine("[SimplifiedVisuals] Failed to remove sparkles from rare card reward");
-        }
+        if (____sparkles != null)
+            ____sparkles.Visible = false;
     }
 }
 
@@ -43,6 +36,7 @@ public static class NCardUncommonGlow_Create_Patch
     public static bool Prefix(ref NCardUncommonGlow? __result)
     {
         if (!Config.DisableRareCardGlow) return true;
+
         __result = null;
         return false;
     }
