@@ -1,6 +1,7 @@
 ﻿using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes.HoverTips;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
@@ -98,9 +99,17 @@ public static class NSovereignBladeVfx__Process_Patch
 [HarmonyPatch(typeof(NStarryImpactVfx), nameof(NStarryImpactVfx._Ready))]
 public static class MuteStarryImpactPatch
 {
+    public static bool Prefix(NStarryImpactVfx __instance)
+    {
+        if (Config.StarryImpactEffect != EffectIntensity.Disabled) return true;
+        __instance.Visible = false;
+        __instance.QueueFreeSafely();
+        return false;
+
+    }
     public static void Postfix(Node2D __instance)
     {
-        if (!Config.MuteStarryImpactEffect) return;
+        if (Config.StarryImpactEffect == EffectIntensity.Default) return;
         var coreVisual = __instance.GetNodeOrNull<CanvasItem>("vfx_starry_impact_core");
         if (coreVisual != null)
             coreVisual.SelfModulate = new Color(1.0f, 1.0f, 1.0f, 0.2f);
