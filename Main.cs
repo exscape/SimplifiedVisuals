@@ -5,9 +5,10 @@ using MegaCrit.Sts2.Core.Modding;
 namespace SimplifiedVisuals;
 
 [ModInitializer("Initialize")]
-public static class ModInitializer
+internal static class Main
 {
     public const string ModId = "SimplifiedVisuals";
+    public static MegaCrit.Sts2.Core.Logging.Logger Logger { get; } = new(ModId, MegaCrit.Sts2.Core.Logging.LogType.Generic);
 
     public static void Initialize()
     {
