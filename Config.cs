@@ -23,7 +23,7 @@ public class Config : SimpleModConfig
     public static void DisableAllEffects(ModConfig config) => ToggleAll(config, EffectIntensity.Disabled);
 
     [ConfigSection("CombatEffects")]
-    public static bool DisableBigSlashEffect { get; set; } = true;
+    public static EffectIntensity BigSlashEffect { get; set; } = EffectIntensity.Reduced;
     public static bool DisablePurpleDoomOverlay { get; set; } = false;
     public static bool DisableRadialBlurEffect { get; set; } = true;
     public static bool DisableScreamEffect { get; set; } = true;

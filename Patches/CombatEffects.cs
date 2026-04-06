@@ -7,18 +7,38 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace SimplifiedVisuals.Patches;
 
-// Hide the Big Slash effect (used by Perfected Strike, Sovereign Blade and the Mecha Knight)
+// Patch the Big Slash effect (used by Perfected Strike, Sovereign Blade and the Mecha Knight)
 [HarmonyPatch(typeof(NBigSlashVfx), nameof(NBigSlashVfx._Ready))]
 public static class NBigSlashVfx__Ready_Patch
 {
-    public static bool Prefix() => !Config.DisableBigSlashEffect;
+    public static bool Prefix() => Config.BigSlashEffect != EffectIntensity.Disabled;
+
+    public static void Postfix(NBigSlashVfx __instance)
+    {
+        if (Config.BigSlashEffect != EffectIntensity.Reduced) return;
+        __instance.ModifyChild<GpuParticles2D>("vfx_slash_core",
+            p => p.Modulate = new Color(1f, 1f, 1f, 0.3f));
+    }
 }
 
-// Also hide the impact VFX from Big Slash
+// Also patch the impact VFX from Big Slash
 [HarmonyPatch(typeof(NBigSlashImpactVfx), nameof(NBigSlashImpactVfx._Ready))]
 public static class NBigSlashImpactVfx__Ready_Patch
 {
-    public static bool Prefix(NBigSlashImpactVfx __instance) => !Config.DisableBigSlashEffect;
+    public static bool Prefix() => Config.BigSlashEffect != EffectIntensity.Disabled;
+
+    public static void Postfix(NBigSlashImpactVfx __instance)
+    {
+        __instance.ModifyChild<GpuParticles2D>("impact_core_pivot/vfx_big_slash_impact_side_smoke_left",
+            p => p.Preprocess = 0.06f);
+        __instance.ModifyChild<GpuParticles2D>("impact_core_pivot/vfx_big_slash_impact_side_smoke_right",
+            p => p.Preprocess = 0.06f);
+
+        __instance.ModifyChild<CanvasItem>("impact_core_pivot/vfx_big_slash_impact_core",
+            c => c.Modulate = new Color(1f, 1f, 1f, 0.3f));
+        __instance.ModifyChild<CanvasItem>("vfx_common_hit_flare",
+            c => c.Modulate = new Color(1f, 1f, 1f, 0.3f));
+    }
 }
 
 // Hide the purple screen overlay when an enemy dies to Doom (but not the void hole that draws the enemy down)

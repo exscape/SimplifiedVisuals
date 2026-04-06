@@ -18,8 +18,8 @@
   "SIMPLIFIEDVISUALS-TIMELINE.title": "Timeline/Epochs",
   "SIMPLIFIEDVISUALS-USER_INTERFACE.title": "User Interface",
 
-  "SIMPLIFIEDVISUALS-DISABLE_BIG_SLASH_EFFECT.title": "Disable Big Slash effect",
-  "SIMPLIFIEDVISUALS-DISABLE_BIG_SLASH_EFFECT.hover.desc": "Disables the bright flashing Big Slash visual effect, used by [gold]Perfected Strike[/gold], [gold]Sovereign Blade[/gold] and the [gold]Mecha Knight[/gold].",
+  "SIMPLIFIEDVISUALS-BIG_SLASH_EFFECT.title": "Big Slash effect",
+  "SIMPLIFIEDVISUALS-BIG_SLASH_EFFECT.hover.desc": "Tweaks the bright flashing Big Slash visual effect, used by [gold]Perfected Strike[/gold], [gold]Sovereign Blade[/gold] and the [gold]Mecha Knight[/gold].",
 
   "SIMPLIFIEDVISUALS-DISABLE_PURPLE_DOOM_OVERLAY.title": "Disable purple Doom overlay",
   "SIMPLIFIEDVISUALS-DISABLE_PURPLE_DOOM_OVERLAY.hover.desc": "Disables the purple screen effect when an enemy dies because of [gold]Doom[/gold].",
@@ -34,7 +34,7 @@
   "SIMPLIFIEDVISUALS-DISABLE_SPOOKY_SCREAM_EFFECT.hover.desc": "Disable the similar \"spooky scream\" effect used by some other enemy attacks ([gold]Haunted Ship[/gold], [gold]Soul Fysh[/gold]).",
 
   "SIMPLIFIEDVISUALS-STARRY_IMPACT_EFFECT.title": "Starry Impact effect",
-  "SIMPLIFIEDVISUALS-STARRY_IMPACT_EFFECT.hover.desc": "Reduces the intensity of the rather bright impact effect used by many [gold]Regent[/gold] cards: [gold]Astral Pulse[/gold], [gold]Celestial Might[/gold], [gold]Crescent Spear[/gold], [gold]Dying Star[/gold], [gold]Falling Star[/gold], [gold]Make It So[/gold], [gold]Radiate[/gold], [gold]Seven Stars[/gold], [gold]Shining Strike[/gold], [gold]Stardust[/gold].",
+  "SIMPLIFIEDVISUALS-STARRY_IMPACT_EFFECT.hover.desc": "Tweaks the rather bright impact effect used by many [gold]Regent[/gold] cards: [gold]Astral Pulse[/gold], [gold]Celestial Might[/gold], [gold]Crescent Spear[/gold], [gold]Dying Star[/gold], [gold]Falling Star[/gold], [gold]Make It So[/gold], [gold]Radiate[/gold], [gold]Seven Stars[/gold], [gold]Shining Strike[/gold], [gold]Stardust[/gold].",
 
   "SIMPLIFIEDVISUALS-DISABLE_REGENT_ATTACK_EFFECT.title": "Disable Regent attack animation",
   "SIMPLIFIEDVISUALS-DISABLE_REGENT_ATTACK_EFFECT.hover.desc": "Disables the animated swords above the [gold]Regent[/gold] during many attacks (including [gold]Strike[/gold]).",
