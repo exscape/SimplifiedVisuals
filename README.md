@@ -5,7 +5,14 @@ Might be of use for people who are sensitive to motion/visual stimulation, easil
 
 **All changes are optional**, see the configuration menu (Settings -> Mod Settings -> Simplified Visuals, then click the cog wheel in the upper right).
 
-As of the initial version, supports removing:
+New in v0.1.1 (2026-05-08):
+
+* Add "Reduced" for some options, as a middle-ground between show/enabled and hide/disabled. For example, for Big Slash and Starry Impact it reduces the brightness/flashiness instead of hiding them entirely
+* Add option to disable the animation when swiching between runs in the Run History screen
+* Add quick presets to show/reduce/hide all effects
+* Add beta branch compatibility (v0.105.0) -- beta branch is now REQUIRED, don't update yet if you play on the standard game branch!
+
+The mod supports removing:
 
 * Various effects on the game's Timeline (moving stars, confetti, pulsing buttons)
 * Radial blur: used by Bygone Effigy, Ceremonial Beast, Mecha Knight, Shrinker Beetle, Vantom
@@ -22,11 +29,14 @@ You can also:
 * Remove the delay between drawn cards, making them move together as a unit (also speeds up the game)
 * Make Sovereign Blade stay still when idle
 * Remove the glow/sparkles from rare and uncommon cards (in card rewards and unlocks)
+* Remove the animation on the Run History screen, when moving between runs
 
 Feel free to contact me via [GitHub issues](https://github.com/exscape/SimplifiedVisuals/issues) or on the Slay the Spire Discord (@Aeluwas) if you have suggestions on additional settings or other improvements, or to report issues.
 
-v0.1.0 is tested with Slay the Spire 2 version 0.99.1 and somewhat tested with version 0.100.0 (beta released on 2026-03-20).  
-Later versions are likely to work just as well; if something breaks, it should be just a single effect toggle or two being affected.
+v0.1.0 is tested with Slay the Spire 2 version 0.99.1 - 0.104.0. (It also works with 0.105.0, but with errors logged in the game.)  
+v0.1.1 requires game version 0.105.0 (released 2026-05-08) or newer due to changes in the game's mod manifest format. It also requires BaseLib version 3.1.2 or higher.
+
+Later game versions are likely to work just as well; if something breaks, it should be just a single effect toggle or two being affected.
 
 ## Installation
 
