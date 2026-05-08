@@ -1,4 +1,5 @@
 ﻿using BaseLib.Config;
+using Godot;
 
 namespace SimplifiedVisuals;
 
@@ -9,7 +10,7 @@ public enum EffectIntensity
     Disabled
 }
 
-[HoverTipsByDefault]
+[ConfigHoverTipsByDefault]
 public class Config : SimpleModConfig
 {
     [ConfigSection("GlobalPresets")]
@@ -48,6 +49,8 @@ public class Config : SimpleModConfig
 
     [ConfigSection("UserInterface")]
     public static bool DisableRareCardGlow { get; set; } = true;
+
+    public static bool DisableRunHistoryScreenTransition { get; set; } = true;
 
     private static void ToggleAll(ModConfig config, EffectIntensity action)
     {
