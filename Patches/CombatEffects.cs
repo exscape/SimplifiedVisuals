@@ -102,7 +102,7 @@ public static class NSovereignBladeVfx__Process_Patch
 
         // Disable the up/down bobbing
         var currentTrack = ____animController?.GetAnimationState().GetCurrent(0);
-        if (currentTrack?.GetAnimation().GetName() == "idle_loop")
+        if (currentTrack?.GetAnimationName() == "idle_loop")
             currentTrack.SetTimeScale(0f);
 
         // Disable the orbit
