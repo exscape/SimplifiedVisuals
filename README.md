@@ -5,6 +5,8 @@ Might be of use for people who are sensitive to motion/visual stimulation, easil
 
 **All changes are optional**, see the configuration menu (Settings -> Mod Settings -> Simplified Visuals, then click the cog wheel in the upper right).
 
+**The mod works in multiplayer** even if you are the only player using it.
+
 New in v0.1.2 (2026-06-11):
 * New options for the new Waterfall Giant fight background
 * New option to disable the Defect's new "Power Up" animation (when playing powers)
@@ -26,6 +28,8 @@ The mod supports removing:
 * "Spooky scream": used by Haunted Ship, Soul Fysh
 * Purple Doom screen overlay (when an enemy dies to Doom)
 * The Insatiable's sandfalls and other sand VFX
+* Waterfall Giant's waterfalls and other water VFX
+* Defect's "Power Up" animation (when playing powers)
 * Slippery Bridge event (disable rain)
 * Regent's attack animation
 
