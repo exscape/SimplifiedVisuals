@@ -33,6 +33,7 @@ public class Config : SimpleModConfig
 
     public static bool DisableRegentAttackEffect { get; set; } = false;
     public static bool DisableSovereignBladeMovement { get; set; } = false;
+    public static bool DisableDefectPowerUpAnimation { get; set; } = false;
 
     [ConfigSection("Environments")]
     public static bool DisableInsatiableSandfalls { get; set; } = true;

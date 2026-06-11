@@ -1,6 +1,8 @@
 ﻿using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes.HoverTips;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
@@ -113,6 +115,16 @@ public static class NSovereignBladeVfx__Process_Patch
             __instance.OrbitProgress -= 60.0 * delta / bakedLength;
 
         return true;
+    }
+}
+
+[HarmonyPatch(typeof(CreatureCmd), nameof(CreatureCmd.TriggerAnim))]
+public class MutePowerUpPatch
+{
+    public static bool Prefix(Creature creature, string triggerName)
+    {
+        if (creature.ModelId.Entry != "DEFECT" || triggerName != "PowerUp") return true;
+        return !Config.DisableDefectPowerUpAnimation;
     }
 }
 
