@@ -5,6 +5,11 @@ Might be of use for people who are sensitive to motion/visual stimulation, easil
 
 **All changes are optional**, see the configuration menu (Settings -> Mod Settings -> Simplified Visuals, then click the cog wheel in the upper right).
 
+New in v0.1.2 (2026-06-11):
+* New options for the new Waterfall Giant fight background
+* New option to disable the Defect's new "Power Up" animation (when playing powers)
+* Requires v0.107.0 (beta branch)
+
 New in v0.1.1 (2026-05-08):
 
 * Add "Reduced" for some options, as a middle-ground between show/enabled and hide/disabled. For example, for Big Slash and Starry Impact it reduces the brightness/flashiness instead of hiding them entirely
