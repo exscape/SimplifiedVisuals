@@ -6,34 +6,65 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace SimplifiedVisuals.Patches;
 
-// Hide The Insatiable "waterfalls" (sandfalls)
+// Hide The Insatiable "waterfalls" (sandfalls) and some actual waterfalls from Waterfall Giant
 [HarmonyPatch(typeof(NCombatBackground), nameof(NCombatBackground.Create))]
 public static class DisableWaterfallsPatch
 {
+    private static readonly string[] VerticalWaterfalls =
+    [
+        "gpu waterfall",
+        "gpu waterfall 1",
+        "gpu waterfall2",
+        "gpu waterfall 2",
+        "gpu waterfall 3",
+        "WATERFALL TYPE 24",
+        "waterfall sparkles2",
+        "oil 1",
+        "oil 2",
+        "oil 7",
+        "oil 8"
+    ];
+
+    private static readonly string[] WaterfallBottoms =
+    [
+        "waterfall bottom",
+        "waterfall bottom2",
+        "waterfall bottom3",
+        "waterfall bottom4"
+    ];
+
     public static void Postfix(NCombatBackground __result)
     {
-        if (!__result.SceneFilePath.Contains("the_insatiable_boss")) return;
+        if (__result.SceneFilePath.Contains("waterfall_giant_boss")) PatchWaterfallGiant(__result);
+        if (__result.SceneFilePath.Contains("the_insatiable_boss")) PatchTheInsatiable(__result);
+    }
 
+    private static void PatchWaterfallGiant(NCombatBackground __result)
+    {
+        if (Config.DisableWaterfallGiantWaterfalls)
+        {
+            foreach (var prefix in VerticalWaterfalls)
+                __result.HideAndDisable($"{prefix}*", remainVisible: false);
+            foreach (var prefix in WaterfallBottoms)
+                __result.HideAndDisable($"{prefix}*", remainVisible: true);
+        }
+
+        if (!Config.FreezeWaterfallGiantBackground) return;
+
+        __result.ProcessMode = Node.ProcessModeEnum.Disabled;
+
+        // These aren't affected by ProcessMode, but hiding them is easy and doesn't have a huge impact.
+        foreach (var prefix in VerticalWaterfalls)
+            __result.HideAndDisable($"{prefix}*", remainVisible: false);
+        __result.HideAndDisable("water_reflection*", remainVisible: false);
+    }
+
+    private static void PatchTheInsatiable(NCombatBackground __result)
+    {
         if (Config.DisableInsatiableSandfalls)
-        {
-            for (var i = 1; i <= 9; i++)
-            {
-                var sandfall = __result.GetNodeOrNull<Node2D>($"gpu waterfall {i}");
-                if (sandfall == null) continue;
-
-                sandfall.Visible = false;
-                sandfall.ProcessMode = Node.ProcessModeEnum.Disabled;
-            }
-        }
-
-        if (!Config.DisableOtherInsatiableSandEffects) return;
-
-        foreach (var child in __result.FindChildren("*sand*"))
-        {
-            if (child is not GpuParticles2D gpuParticles) continue;
-            gpuParticles.ProcessMode = Node.ProcessModeEnum.Disabled;
-            gpuParticles.Visible = false;
-        }
+            __result.HideAndDisable("gpu waterfall*", true);
+        if (Config.DisableOtherInsatiableSandEffects)
+            __result.HideAndDisable("*sand*", true);
     }
 }
 

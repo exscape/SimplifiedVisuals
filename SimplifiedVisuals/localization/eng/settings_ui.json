@@ -45,6 +45,12 @@
   "SIMPLIFIEDVISUALS-DISABLE_DEFECT_POWER_UP_ANIMATION.title": "Disable Defect \"Power Up\" animation",
   "SIMPLIFIEDVISUALS-DISABLE_DEFECT_POWER_UP_ANIMATION.hover.desc": "Disables the animation played when the [gold]Defect[/gold] plays most powers.",
 
+  "SIMPLIFIEDVISUALS-DISABLE_WATERFALL_GIANT_WATERFALLS.title": "Disable Waterfall Giant waterfalls",
+  "SIMPLIFIEDVISUALS-DISABLE_WATERFALL_GIANT_WATERFALLS.hover.desc": "Freezes the vertical waterfall columns and their splash effects during the [gold]Waterfall Giant[/gold] combat.",
+
+  "SIMPLIFIEDVISUALS-FREEZE_WATERFALL_GIANT_BACKGROUND.title": "Freeze Waterfall Giant background",
+  "SIMPLIFIEDVISUALS-FREEZE_WATERFALL_GIANT_BACKGROUND.hover.desc": "Completely freezes all animation in the [gold]Waterfall Giant[/gold] combat background.",
+
   "SIMPLIFIEDVISUALS-DISABLE_INSATIABLE_SANDFALLS.title": "Disable Insatiable sandfalls",
   "SIMPLIFIEDVISUALS-DISABLE_INSATIABLE_SANDFALLS.hover.desc": "Disables the \"sandfalls\" in the background of [gold]The Insatiable[/gold].",
 

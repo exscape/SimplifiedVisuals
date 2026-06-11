@@ -36,6 +36,8 @@ public class Config : SimpleModConfig
     public static bool DisableDefectPowerUpAnimation { get; set; } = false;
 
     [ConfigSection("Environments")]
+    public static bool DisableWaterfallGiantWaterfalls { get; set; } = false;
+    public static bool FreezeWaterfallGiantBackground { get; set; } = false;
     public static bool DisableInsatiableSandfalls { get; set; } = true;
     public static bool DisableOtherInsatiableSandEffects { get; set; } = false;
     public static bool DisableRainEffect { get; set; } = false;
