@@ -62,9 +62,9 @@ public static class DisableWaterfallsPatch
     private static void PatchTheInsatiable(NCombatBackground __result)
     {
         if (Config.DisableInsatiableSandfalls)
-            __result.HideAndDisable("gpu waterfall*", true);
+            __result.HideAndDisable("gpu waterfall*", remainVisible: false);
         if (Config.DisableOtherInsatiableSandEffects)
-            __result.HideAndDisable("*sand*", true);
+            __result.HideAndDisable("*sand*", remainVisible: false);
     }
 }
 

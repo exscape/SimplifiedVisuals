@@ -22,7 +22,7 @@ public static class NodeExtensions
         foreach (var child in instance.FindChildren(pattern, recursive: true, owned: false))
         {
             if (child is not CanvasItem canvasItem) continue;
-            Main.Logger.Debug($"Disabling node matching {pattern}: {child.Name} (type {child.GetType().Name})");
+            if (printDebug) Main.Logger.Info($"Disabling node matching {pattern}: {child.Name} (type {child.GetType().Name})");
             canvasItem.ProcessMode = Node.ProcessModeEnum.Disabled;
             if (!remainVisible)
                 canvasItem.Visible = false;
