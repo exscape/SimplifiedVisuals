@@ -75,6 +75,9 @@
   "SIMPLIFIEDVISUALS-DISABLE_RARE_CARD_GLOW.title": "Disable rare/uncommon card effects",
   "SIMPLIFIEDVISUALS-DISABLE_RARE_CARD_GLOW.hover.desc": "Disables the glow and sparkle effect around rare/uncommon cards.",
 
+  "SIMPLIFIEDVISUALS-DISABLE_RARE_RELIC_GLOW.title": "Disable rare/uncommon relic effects",
+  "SIMPLIFIEDVISUALS-DISABLE_RARE_RELIC_GLOW.hover.desc": "Disables the glow effect around rare/uncommon relics.",
+
   "SIMPLIFIEDVISUALS-DISABLE_RUN_HISTORY_SCREEN_TRANSITION.title": "Disable run history screen transition",
   "SIMPLIFIEDVISUALS-DISABLE_RUN_HISTORY_SCREEN_TRANSITION.hover.desc": "Disables the slide/swipe animation when switching between runs."
 }

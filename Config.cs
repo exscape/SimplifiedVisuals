@@ -52,6 +52,7 @@ public class Config : SimpleModConfig
 
     [ConfigSection("UserInterface")]
     public static bool DisableRareCardGlow { get; set; } = true;
+    public static bool DisableRareRelicGlow { get; set; } = false;
 
     public static bool DisableRunHistoryScreenTransition { get; set; } = true;
 
