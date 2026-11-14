@@ -7,6 +7,11 @@ Might be of use for people who are sensitive to motion/visual stimulation, easil
 
 **The mod works in multiplayer** even if you are the only player using it.
 
+New in v0.1.3 (2026-11-14):
+* Support game v0.113.0 (adding The Fool, etc.): hiding uncommon/rare card glow caused uncommon/rare relics in treasure chests to not show
+* Add new, separate setting to hide uncommon/rare glow around treasure chest relics (off by default)
+* Requires v0.113.0 (beta branch as of today, and probably many weeks ahead), **don't update if you are on older version**.
+
 New in v0.1.2 (2026-06-11):
 * New options for the new Waterfall Giant fight background
 * New option to disable the Defect's new "Power Up" animation (when playing powers)
@@ -38,12 +43,15 @@ You can also:
 * Remove the delay between drawn cards, making them move together as a unit (also speeds up the game)
 * Make Sovereign Blade stay still when idle
 * Remove the glow/sparkles from rare and uncommon cards (in card rewards and unlocks)
+* Remove the glow from rare and uncommon relics (in treasure chests)
 * Remove the animation on the Run History screen, when moving between runs
 
 Feel free to contact me via [GitHub issues](https://github.com/exscape/SimplifiedVisuals/issues) or on the Slay the Spire Discord (@Aeluwas) if you have suggestions on additional settings or other improvements, or to report issues.
 
 v0.1.0 is tested with Slay the Spire 2 version 0.99.1 - 0.104.0. (It also works with 0.105.0, but with errors logged in the game.)  
-v0.1.1 requires game version 0.105.0 (released 2026-05-08) or newer due to changes in the game's mod manifest format. It also requires BaseLib version 3.1.2 or higher.
+v0.1.1 requires game version 0.105.0 (released 2026-05-08) or newer due to changes in the game's mod manifest format. It also requires BaseLib version 3.1.2 or higher.  
+v0.1.2 requires v0.107.0 - v0.111.0  
+v0.1.3 requires v0.113.0 and will probably work on several future versions
 
 Later game versions are likely to work just as well; if something breaks, it should be just a single effect toggle or two being affected.
 
